@@ -421,15 +421,15 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   margin-top: 20px;
 }
 .hero-glass {
-  background: rgba(10,10,10,0.35);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(10,10,10,0.18);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(255,255,255,0.08);
   border-radius: 24px;
   padding: 48px 40px 40px;
 }
 @supports not (backdrop-filter: blur(10px)) {
-  .hero-glass { background: rgba(10,10,10,0.75); }
+  .hero-glass { background: rgba(10,10,10,0.55); }
 }
 .hero-badge {
   display: inline-flex;
