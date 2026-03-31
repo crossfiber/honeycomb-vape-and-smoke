@@ -373,34 +373,48 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   position: relative;
   min-height: 100vh;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
   overflow: hidden;
   background: var(--dark);
+  padding-bottom: 80px;
 }
 .hero-bg {
   position: absolute;
   inset: 0;
   z-index: 1;
 }
+.hero-bg-img {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: url('o.jpg') center 30% / cover no-repeat;
+  transform: scale(1.05);
+  animation: hero-zoom 20s ease-in-out infinite alternate;
+}
+@keyframes hero-zoom {
+  0% { transform: scale(1.05); }
+  100% { transform: scale(1.12); }
+}
 .hero-bg::before {
   content: '';
   position: absolute;
   inset: 0;
+  z-index: 1;
   background:
-    radial-gradient(ellipse at 20% 50%, rgba(245,166,35,0.12) 0%, transparent 60%),
-    radial-gradient(ellipse at 80% 30%, rgba(245,166,35,0.08) 0%, transparent 50%),
-    radial-gradient(ellipse at 50% 80%, rgba(199,133,26,0.06) 0%, transparent 50%);
+    linear-gradient(180deg, rgba(10,10,10,0.45) 0%, rgba(10,10,10,0.2) 35%, rgba(10,10,10,0.65) 70%, rgba(10,10,10,0.95) 100%);
 }
 .hero-bg::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(10,10,10,0.3) 0%, rgba(10,10,10,0.8) 100%);
+  z-index: 2;
+  background:
+    radial-gradient(ellipse at 50% 100%, rgba(245,166,35,0.08) 0%, transparent 60%);
 }
 .hero-content {
   position: relative;
-  z-index: 2;
+  z-index: 3;
   text-align: center;
   max-width: 800px;
   padding: 0 24px;
@@ -1178,7 +1192,9 @@ section {
     padding: 24px;
     gap: 20px;
   }
-  .hero h1 { text-align: center; }
+  .hero { align-items: flex-end; padding-bottom: 60px; min-height: 100svh; }
+  .hero-bg-img { background-position: center 20%; }
+  .hero h1 { text-align: center; font-size: clamp(2rem, 8vw, 3rem); }
   .hero-sub { text-align: center; }
   .hero-content { text-align: center; }
   .about-features { grid-template-columns: 1fr; }
@@ -1260,7 +1276,7 @@ section {
 <!-- Hero -->
 <section class="hero" id="hero">
   <div class="hero-bg">
-    <div class="honeycomb-pattern"></div>
+    <div class="hero-bg-img"></div>
   </div>
   <div class="hero-content fade-in">
     <div class="hero-badge"><i class="fas fa-location-dot"></i> Two Miami Locations</div>
