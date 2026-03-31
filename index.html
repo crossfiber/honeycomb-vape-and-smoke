@@ -130,7 +130,7 @@
   --font-heading: 'Space Grotesk', sans-serif;
   --font-body: 'Inter', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
-  --nav-height: 72px;
+  --nav-height: 80px;
   --radius: 16px;
   --radius-sm: 10px;
   --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -167,10 +167,13 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   height: var(--nav-height);
   display: flex;
   align-items: center;
+  background: rgba(10,10,10,0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   transition: background var(--transition), backdrop-filter var(--transition), box-shadow var(--transition);
 }
 .nav.scrolled {
-  background: rgba(10,10,10,0.85);
+  background: rgba(10,10,10,0.9);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   box-shadow: 0 1px 0 var(--glass-border);
@@ -190,15 +193,15 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   gap: 12px;
 }
 .nav-logo img {
-  width: 52px;
-  height: 52px;
-  border-radius: 12px;
+  width: 60px;
+  height: 60px;
+  border-radius: 14px;
   object-fit: cover;
   border: 2px solid var(--gold);
 }
 .nav-logo span {
   font-family: var(--font-heading);
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   font-weight: 700;
   color: var(--text-primary);
   text-transform: uppercase;
@@ -389,7 +392,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   position: absolute;
   inset: 0;
   z-index: 0;
-  background: url('photo_2026-03-31_18-20-55.jpg') center top / cover no-repeat;
+  background: url('photo_2026-03-31_18-20-55.jpg') center 60% / cover no-repeat;
 }
 .hero-bg::before {
   content: '';
@@ -412,7 +415,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   z-index: 3;
   text-align: center;
   max-width: 680px;
-  padding: 120px 24px 0;
+  padding: 0 24px;
+  margin-top: -40px;
 }
 .hero-glass {
   background: rgba(10,10,10,0.55);
@@ -1199,9 +1203,9 @@ section {
     gap: 20px;
   }
   .hero { min-height: 100svh; }
-  .hero-content { padding: 100px 16px 0; }
-  .hero-glass { padding: 32px 24px 28px; border-radius: 20px; }
-  .hero-bg-img { background-position: center 30%; }
+  .hero-content { padding: 0 16px; margin-top: -20px; }
+  .hero-glass { padding: 28px 20px 24px; border-radius: 18px; }
+  .hero-bg-img { background-position: center 55%; }
   .hero h1 { text-align: center; font-size: clamp(1.8rem, 7vw, 2.8rem); }
   .hero-sub { text-align: center; }
   .hero-content { text-align: center; }
