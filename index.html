@@ -190,17 +190,19 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   gap: 12px;
 }
 .nav-logo img {
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
   object-fit: cover;
   border: 2px solid var(--gold);
 }
 .nav-logo span {
   font-family: var(--font-heading);
-  font-size: 1.15rem;
+  font-size: 1.3rem;
   font-weight: 700;
   color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
 }
 .nav-logo .logo-accent { color: var(--gold); }
 .nav-links {
@@ -373,11 +375,10 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   position: relative;
   min-height: 100vh;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: center;
   overflow: hidden;
   background: var(--dark);
-  padding-bottom: 80px;
 }
 .hero-bg {
   position: absolute;
@@ -388,13 +389,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   position: absolute;
   inset: 0;
   z-index: 0;
-  background: url('photo_2026-03-31_18-20-55.jpg') center center / cover no-repeat;
-  transform: scale(1.05);
-  animation: hero-zoom 20s ease-in-out infinite alternate;
-}
-@keyframes hero-zoom {
-  0% { transform: scale(1.05); }
-  100% { transform: scale(1.12); }
+  background: url('photo_2026-03-31_18-20-55.jpg') center top / cover no-repeat;
 }
 .hero-bg::before {
   content: '';
@@ -402,7 +397,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   inset: 0;
   z-index: 1;
   background:
-    linear-gradient(180deg, rgba(10,10,10,0.55) 0%, rgba(10,10,10,0.35) 30%, rgba(10,10,10,0.6) 60%, rgba(10,10,10,0.92) 100%);
+    linear-gradient(180deg, rgba(10,10,10,0.3) 0%, rgba(10,10,10,0.15) 25%, rgba(10,10,10,0.25) 50%, rgba(10,10,10,0.7) 80%, rgba(10,10,10,0.95) 100%);
 }
 .hero-bg::after {
   content: '';
@@ -410,14 +405,25 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   inset: 0;
   z-index: 2;
   background:
-    radial-gradient(ellipse at 50% 100%, rgba(245,166,35,0.08) 0%, transparent 60%);
+    radial-gradient(ellipse at 50% 100%, rgba(245,166,35,0.06) 0%, transparent 60%);
 }
 .hero-content {
   position: relative;
   z-index: 3;
   text-align: center;
-  max-width: 800px;
-  padding: 0 24px;
+  max-width: 680px;
+  padding: 120px 24px 0;
+}
+.hero-glass {
+  background: rgba(10,10,10,0.55);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 24px;
+  padding: 48px 40px 40px;
+}
+@supports not (backdrop-filter: blur(16px)) {
+  .hero-glass { background: rgba(10,10,10,0.85); }
 }
 .hero-badge {
   display: inline-flex;
@@ -1192,9 +1198,11 @@ section {
     padding: 24px;
     gap: 20px;
   }
-  .hero { align-items: flex-end; padding-bottom: 60px; min-height: 100svh; }
-  .hero-bg-img { background-position: center 40%; }
-  .hero h1 { text-align: center; font-size: clamp(2rem, 8vw, 3rem); }
+  .hero { min-height: 100svh; }
+  .hero-content { padding: 100px 16px 0; }
+  .hero-glass { padding: 32px 24px 28px; border-radius: 20px; }
+  .hero-bg-img { background-position: center 30%; }
+  .hero h1 { text-align: center; font-size: clamp(1.8rem, 7vw, 2.8rem); }
   .hero-sub { text-align: center; }
   .hero-content { text-align: center; }
   .about-features { grid-template-columns: 1fr; }
@@ -1279,16 +1287,18 @@ section {
     <div class="hero-bg-img"></div>
   </div>
   <div class="hero-content fade-in">
-    <div class="hero-badge"><i class="fas fa-location-dot"></i> Two Miami Locations</div>
-    <h1>Your Neighborhood <span class="gold">Smoke Shop</span> in South Miami</h1>
-    <p class="hero-sub">Premium vapes, glass, hookahs, and accessories. Two locations in Cutler Bay and Quail Roost. Open daily until 10PM.</p>
-    <div class="hero-actions">
-      <a href="tel:+13059647796" class="btn-primary"><i class="fas fa-phone"></i> Call (305) 964-7796</a>
-      <a href="#services" class="btn-secondary"><i class="fas fa-store"></i> Browse Products</a>
-    </div>
-    <div class="hero-hours">
-      <span class="dot"></span>
-      <span>Open Today 10:00 AM - 10:00 PM</span>
+    <div class="hero-glass">
+      <div class="hero-badge"><i class="fas fa-location-dot"></i> Two Miami Locations</div>
+      <h1>Your Neighborhood <span class="gold">Smoke Shop</span> in South Miami</h1>
+      <p class="hero-sub">Premium vapes, glass, hookahs, and accessories. Two locations in Cutler Bay and Quail Roost. Open daily until 10PM.</p>
+      <div class="hero-actions">
+        <a href="tel:+13059647796" class="btn-primary"><i class="fas fa-phone"></i> Call (305) 964-7796</a>
+        <a href="#services" class="btn-secondary"><i class="fas fa-store"></i> Browse Products</a>
+      </div>
+      <div class="hero-hours">
+        <span class="dot"></span>
+        <span>Open Today 10:00 AM - 10:00 PM</span>
+      </div>
     </div>
   </div>
 </section>
